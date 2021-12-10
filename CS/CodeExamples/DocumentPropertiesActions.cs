@@ -10,6 +10,9 @@ namespace RichEditDocumentServerAPIExample.CodeExamples
 {
     public static class DocumentPropertiesActions
     {
+        public static Action<RichEditDocumentServer> StandardDocumentPropertiesAction = StandardDocumentProperties;
+        public static Action<RichEditDocumentServer> CustomDocumentPropertiesAction = CustomDocumentProperties;
+
         static void StandardDocumentProperties(RichEditDocumentServer wordProcessor)
         {
             #region #StandardDocumentProperties

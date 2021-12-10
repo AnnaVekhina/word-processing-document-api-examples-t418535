@@ -14,6 +14,15 @@ namespace RichEditDocumentServerAPIExample.CodeExamples
 {
     class ExportActions
     {
+        public static Action<RichEditDocumentServer> SaveImageFromRangeAction = SaveImageFromRange;
+        public static Action<RichEditDocumentServer> ExportRangeToHtmlAction = ExportRangeToHtml;
+        public static Action<RichEditDocumentServer> ExportRangeToPlainTextAction = ExportRangeToPlainText;
+        public static Action<RichEditDocumentServer> ExportToPDFAction = ExportToPDF;
+        public static Action<RichEditDocumentServer> ConvertHTMLtoPDFAction = ConvertHTMLtoPDF;
+        public static Action<RichEditDocumentServer> ConvertHTMLtoDOCXAction = ConvertHTMLtoDOCX;
+        public static Action<RichEditDocumentServer> ExportToHTMLAction = ExportToHTML;
+        public static Action<RichEditDocumentServer> BeforeExportAction = BeforeExport;
+
         static void SaveImageFromRange(RichEditDocumentServer wordProcessor)
         {
             #region #SaveImageFromRange

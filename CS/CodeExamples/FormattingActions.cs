@@ -1,11 +1,19 @@
 ﻿using DevExpress.XtraRichEdit;
 using DevExpress.XtraRichEdit.API.Native;
+using System;
 using System.Drawing;
 
 namespace RichEditDocumentServerAPIExample.CodeExamples
 {
     class FormattingActions
-    {        
+    {
+        public static Action<RichEditDocumentServer> FormatTextAction = FormatText;
+        public static Action<RichEditDocumentServer> ChangeSpacingAction = ChangeSpacing;
+        public static Action<RichEditDocumentServer> ResetCharacterFormattingAction = ResetCharacterFormatting;
+        public static Action<RichEditDocumentServer> FormatParagraphAction = FormatParagraph;
+        public static Action<RichEditDocumentServer> ResetParagraphFormattingAction = ResetParagraphFormatting;
+
+
         static void FormatText(RichEditDocumentServer wordProcessor)
         {
             #region #FormatText

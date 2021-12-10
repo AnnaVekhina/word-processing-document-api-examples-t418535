@@ -9,7 +9,12 @@ using DevExpress.XtraRichEdit;
 namespace RichEditDocumentServerAPIExample.CodeExamples
 {
     class PageLayoutActions
-    {       
+    {
+        public static Action<RichEditDocumentServer> LineNumberingAction = LineNumbering;
+        public static Action<RichEditDocumentServer> CreateColumnsAction = CreateColumns;
+        public static Action<RichEditDocumentServer> PrintLayoutAction = PrintLayout;
+        public static Action<RichEditDocumentServer> TabStopsAction = TabStops;
+
         static void LineNumbering(RichEditDocumentServer wordProcessor)
         {
             #region #LineNumbering

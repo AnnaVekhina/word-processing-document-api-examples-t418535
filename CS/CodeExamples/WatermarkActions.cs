@@ -7,10 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RichEditDocumentServerExample.CodeExamples
+namespace RichEditDocumentServerAPIExample.CodeExamples
 {
     class WatermarkActions
     {
+        public static Action<RichEditDocumentServer> CreateTextWatermarkAction = CreateTextWatermark;
+        public static Action<RichEditDocumentServer> CreateImageWatermarkAction = CreateImageWatermark;
         static void CreateTextWatermark(RichEditDocumentServer wordProcessor) 
         {
             #region #CreateTextWatermark

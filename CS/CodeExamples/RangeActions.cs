@@ -9,7 +9,12 @@ using DevExpress.XtraRichEdit.API.Native;
 namespace RichEditDocumentServerAPIExample.CodeExamples
 {
     class RangeActions
-    {       
+    {
+        public static Action<RichEditDocumentServer> SelectTextInRangeAction = SelectTextInRange;
+        public static Action<RichEditDocumentServer> InsertTextInRangeAction = InsertTextInRange;
+        public static Action<RichEditDocumentServer> AppendTextToRangeAction = AppendTextToRange;
+        public static Action<RichEditDocumentServer> AppendToParagraphAction = AppendToParagraph;
+
         static void SelectTextInRange(RichEditDocumentServer wordProcessor)
         {
             #region #SelectTextInRange

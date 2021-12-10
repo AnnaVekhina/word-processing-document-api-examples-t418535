@@ -1,11 +1,17 @@
 ﻿using DevExpress.XtraRichEdit;
 using DevExpress.XtraRichEdit.API.Native;
+using System;
 
 namespace RichEditDocumentServerAPIExample.CodeExamples
 {
     public static class NotesActions
     {
-
+        public static Action<RichEditDocumentServer> InsertFootnotesAction = InsertFootnotes;
+        public static Action<RichEditDocumentServer> InsertEndnotesAction = InsertEndnotes;
+        public static Action<RichEditDocumentServer> EditFootnoteAction = EditFootnote;
+        public static Action<RichEditDocumentServer> EditEndnoteAction = EditEndnote;
+        public static Action<RichEditDocumentServer> EditSeparatorAction = EditSeparator;
+        public static Action<RichEditDocumentServer> RemoveNotesAction = RemoveNotes;
         static void InsertFootnotes(RichEditDocumentServer wordProcessor)
         {
             #region #InsertFootnotes

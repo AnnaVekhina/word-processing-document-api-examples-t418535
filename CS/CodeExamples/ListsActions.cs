@@ -10,7 +10,9 @@ namespace RichEditDocumentServerAPIExample.CodeExamples
 {
     class ListsActions
     {
-
+        public static Action<RichEditDocumentServer> CreateBulletedListAction = CreateBulletedList;
+        public static Action<RichEditDocumentServer> CreateNumberedListAction = CreateNumberedList;
+        public static Action<RichEditDocumentServer> CreateMultilevelListAction = CreateMultilevelList;
         static void CreateBulletedList(RichEditDocumentServer wordProcessor)
         {
             #region #CreateBulletedList

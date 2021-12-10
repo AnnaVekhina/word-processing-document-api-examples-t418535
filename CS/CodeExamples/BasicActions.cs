@@ -11,19 +11,33 @@ using DevExpress.XtraRichEdit.Export;
 
 namespace RichEditDocumentServerAPIExample.CodeExamples
 {
-   public static class BasicActions
-    {
+   public static class BasicActions {
+
+        public static Action<RichEditDocumentServer> CreateNewDocumentAction = CreateNewDocument;
+        public static Action<RichEditDocumentServer> LoadDocumentAction = LoadDocument;
+        public static Action<RichEditDocumentServer> MergeDocumentsAction = MergeDocuments;
+        public static Action<RichEditDocumentServer> SplitDocumentAction = SplitDocument;
+        public static Action<RichEditDocumentServer> SaveDocumentAction = SaveDocument;
+        public static Action<RichEditDocumentServer> PrintDocumentAction = PrintDocument;
+
+        public static void SaveAndOpenDocument(RichEditDocumentServer wordProcessor) {
+            //wordProcessor.SaveDocument("Result.docx", DocumentFormat.OpenXml);
+            //Process.Start("Result.docx");
+        }
+    
         static void CreateNewDocument(RichEditDocumentServer wordProcessor)
         {
             #region #CreateDocument
             wordProcessor.CreateNewDocument();
             #endregion #CreateDocument
+            SaveAndOpenDocument(wordProcessor);
         }
         static void LoadDocument(RichEditDocumentServer wordProcessor)
         {
             #region #LoadDocument
             wordProcessor.LoadDocument("Documents\\Grimm.docx", DocumentFormat.OpenXml);
             #endregion #LoadDocument
+            SaveAndOpenDocument(wordProcessor);
         }
         static void MergeDocuments(RichEditDocumentServer wordProcessor)
         {
@@ -31,6 +45,7 @@ namespace RichEditDocumentServerAPIExample.CodeExamples
             wordProcessor.LoadDocument("Documents//Grimm.docx", DocumentFormat.OpenXml);
             wordProcessor.Document.AppendDocumentContent("Documents//MovieRentals.docx",DocumentFormat.OpenXml);
             #endregion #MergeDocuments
+            SaveAndOpenDocument(wordProcessor);
         }
         static void SplitDocument(RichEditDocumentServer wordProcessor)
         {

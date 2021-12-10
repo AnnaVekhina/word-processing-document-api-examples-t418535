@@ -10,6 +10,9 @@ namespace RichEditDocumentServerAPIExample.CodeExamples
 {
     public static class ProtectionActions
     {
+        public static Action<RichEditDocumentServer> ProtectDocumentAction = ProtectDocument;
+        public static Action<RichEditDocumentServer> UnprotectDocumentAction = UnprotectDocument;
+        public static Action<RichEditDocumentServer> CreateRangePermissionsAction = CreateRangePermissions;
         static void ProtectDocument(RichEditDocumentServer wordProcessor)
         {
             #region #ProtectDocument

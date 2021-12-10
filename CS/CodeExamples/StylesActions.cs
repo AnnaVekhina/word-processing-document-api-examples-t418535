@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 using DevExpress.XtraRichEdit;
 using DevExpress.XtraRichEdit.API.Native;
 
-namespace RTEDocumentServerExamples.CodeExamples
+namespace RichEditDocumentServerAPIExample.CodeExamples
 {
     class StylesAction
-    {   
+    {
+        public static Action<RichEditDocumentServer> CreateNewCharacterStyleAction = CreateNewCharacterStyle;
+        public static Action<RichEditDocumentServer> CreateNewParagraphStyleAction = CreateNewParagraphStyle;
+        public static Action<RichEditDocumentServer> CreateNewLinkedStyleAction = CreateNewLinkedStyle;
+
         static void CreateNewCharacterStyle(RichEditDocumentServer wordProcessor)
         {
             #region #CreateNewCharacterStyle

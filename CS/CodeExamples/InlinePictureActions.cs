@@ -10,6 +10,10 @@ namespace RichEditDocumentServerAPIExample.CodeExamples
 {
     class InlinePicturesActions
     {
+        public static Action<RichEditDocumentServer> ImageFromFileAction = ImageFromFile;
+        public static Action<RichEditDocumentServer> ImageCollectionAction = ImageCollection;
+        public static Action<RichEditDocumentServer> SaveImageToFileAction = SaveImageToFile;
+
         static void ImageFromFile(RichEditDocumentServer wordProcessor)
         {
             #region #ImageFromFile

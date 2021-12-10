@@ -10,10 +10,16 @@ namespace RichEditDocumentServerAPIExample.CodeExamples
 {
     class FieldActions
     {
+        public static Action<RichEditDocumentServer> InsertFieldAction = InsertField;
+        public static Action<RichEditDocumentServer> ModifyFieldCodeAction = ModifyFieldCode;
+        public static Action<RichEditDocumentServer> CreateFieldFromRangeAction = CreateFieldFromRange;
+        public static Action<RichEditDocumentServer> ShowFieldCodesAction = ShowFieldCodes;
+
         static void InsertField(RichEditDocumentServer wordProcessor)
         {
             #region #InsertField
             Document document = wordProcessor.Document;
+            document.LoadDocument("Documents\\New_document.docx", DocumentFormat.OpenXml);
             document.BeginUpdate();
             document.Fields.Create(document.Range.Start, "DATE");
             document.Fields.Update();
@@ -25,6 +31,7 @@ namespace RichEditDocumentServerAPIExample.CodeExamples
         {
             #region #ModifyFieldCode
             Document document = wordProcessor.Document;
+            document.LoadDocument("Documents\\New_document.docx", DocumentFormat.OpenXml);
             document.BeginUpdate();
             document.Fields.Create(document.CaretPosition, "DATE");
             document.EndUpdate();
@@ -45,6 +52,7 @@ namespace RichEditDocumentServerAPIExample.CodeExamples
         {
             #region #CreateFieldFromRange
             Document document = wordProcessor.Document;
+            document.LoadDocument("Documents\\New_document.docx", DocumentFormat.OpenXml);
             document.BeginUpdate();
             document.AppendText("SYMBOL 0x54 \\f Wingdings \\s 24");
             document.EndUpdate();
@@ -57,7 +65,7 @@ namespace RichEditDocumentServerAPIExample.CodeExamples
         {
             #region #ShowFieldCodes
             Document document = wordProcessor.Document;
-            document.LoadDocument("MailMergeSimple.docx", DocumentFormat.OpenXml);
+            document.LoadDocument("Documents\\MailMergeSimple.docx", DocumentFormat.OpenXml);
             for (int i = 0; i < document.Fields.Count; i++)
             {
                 document.Fields[i].ShowCodes = true;

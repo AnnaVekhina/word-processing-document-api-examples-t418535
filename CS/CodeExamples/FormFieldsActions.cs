@@ -10,6 +10,8 @@ namespace RichEditDocumentServerAPIExample.CodeExamples
 {
     class FormFieldsActions
     {
+        public static Action<RichEditDocumentServer> InsertCheckBoxAction = InsertCheckBox;
+
         static void InsertCheckBox(RichEditDocumentServer wordProcessor)
         {
             #region #InsertCheckbox

@@ -5,11 +5,24 @@ using System.IO;
 using System.Drawing;
 using DevExpress.Office.Utils;
 
-namespace RTEDocumentServerExamples.CodeExamples
+namespace RichEditDocumentServerAPIExample.CodeExamples
 {
 
     class TablesActions
-    {       
+    {
+        public static Action<RichEditDocumentServer> CreateTableAction = CreateTable;
+        public static Action<RichEditDocumentServer> CreateFixedTableAction = CreateFixedTable;
+        public static Action<RichEditDocumentServer> ChangeTableColorAction = ChangeTableColor;
+        public static Action<RichEditDocumentServer> CreateAndApplyTableStyleAction = CreateAndApplyTableStyle;
+        public static Action<RichEditDocumentServer> UseConditionalStyleAction = UseConditionalStyle;
+        public static Action<RichEditDocumentServer> ChangeColumnAppearanceAction = ChangeColumnAppearance;
+        public static Action<RichEditDocumentServer> UseTableCellProcessorAction = UseTableCellProcessor;
+        public static Action<RichEditDocumentServer> MergeCellsAction = MergeCells;
+        public static Action<RichEditDocumentServer> SplitCellsAction = SplitCells;
+        public static Action<RichEditDocumentServer> DeleteTableElementsAction = DeleteTableElements;
+        public static Action<RichEditDocumentServer> WrapTextAroundTableAction = WrapTextAroundTable;
+
+
         static void CreateTable(RichEditDocumentServer wordProcessor)
         {
 

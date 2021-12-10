@@ -10,7 +10,14 @@ namespace RichEditDocumentServerAPIExample.CodeExamples
 {
     class ShapesActions
     {
-       
+        public static Action<RichEditDocumentServer> AddFloatingPictureAction = AddFloatingPicture;
+        public static Action<RichEditDocumentServer> FloatingPictureOffsetAction = FloatingPictureOffset;
+        public static Action<RichEditDocumentServer> ChangeZorderAndWrappingAction = ChangeZorderAndWrapping;
+        public static Action<RichEditDocumentServer> AddTextBoxAction = AddTextBox;
+        public static Action<RichEditDocumentServer> InsertRichTextInTextBoxAction = InsertRichTextInTextBox;
+        public static Action<RichEditDocumentServer> RotateAndResizeAction = RotateAndResize;
+        public static Action<RichEditDocumentServer> SelectShapeAction = SelectShape;
+
         static void AddFloatingPicture(RichEditDocumentServer wordProcessor)
         {
             #region #AddFloatingPicture
@@ -82,7 +89,7 @@ namespace RichEditDocumentServerAPIExample.CodeExamples
             Shape myTextBox = document.Shapes[0];
             // Allow text box resize to fit contents.
             myTextBox.ShapeFormat.TextBox.HeightRule = TextBoxSizeRule.Auto;
-            SubDocument boxedDocument = myTextBox.TextBox.Document;
+            SubDocument boxedDocument = myTextBox.ShapeFormat.TextBox.Document;
             int appendPosition = myTextBox.ShapeFormat.TextBox.Document.Range.End.ToInt();
             // Append the second paragraph of the main document to the boxed text.
             DocumentRange newRange = boxedDocument.AppendDocumentContent(document.Paragraphs[1].Range);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,8 +9,11 @@ using DevExpress.XtraRichEdit.API.Native;
 
 namespace RichEditDocumentServerAPIExample.CodeExamples
 {
-    public static class BookmarksAndHyperlinksActions
-    {
+    public static class BookmarksAndHyperlinksActions {
+
+    public static Action<RichEditDocumentServer> InsertBookmarkAction = InsertBookmark;
+    public static Action<RichEditDocumentServer> InsertHyperlinkAction = InsertHyperlink;
+    
          static void InsertBookmark(RichEditDocumentServer wordProcessor)
         {
             #region #InsertBookmark
@@ -25,7 +29,7 @@ namespace RichEditDocumentServerAPIExample.CodeExamples
             wordProcessor.EndUpdate();
             #endregion #InsertBookmark
         }
-         static void InsertHyperlink(RichEditDocumentServer wordProcessor)
+        static void InsertHyperlink(RichEditDocumentServer wordProcessor)
         {
             #region #InsertHyperlink
             Document document = wordProcessor.Document;

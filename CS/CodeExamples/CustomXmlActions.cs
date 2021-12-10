@@ -11,6 +11,9 @@ namespace RichEditDocumentServerAPIExample.CodeExamples
 {
     class CustomXmlActions
     {
+        public static Action<RichEditDocumentServer> AddCustomXmlPartAction = AddCustomXmlPart;
+        public static Action<RichEditDocumentServer> AccessCustomXmlPartAction = AccessCustomXmlPart;
+        public static Action<RichEditDocumentServer> RemoveCustomXmlPartAction = RemoveCustomXmlPart;
         static void AddCustomXmlPart(RichEditDocumentServer wordProcessor)
         {
             #region #AddCustomXmlPart

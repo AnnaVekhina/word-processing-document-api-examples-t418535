@@ -44,6 +44,7 @@ namespace RichEditDocumentServerAPIExample.CodeUtils
             result = result.Replace(" From ", " from ");
             result = result.Replace(" With ", " with ");
             result = result.Replace(" By ", " by ");
+            result = result.Replace('\"', '\0');
             return result;
         }
         static string SplitCamelCase(string exampleName)
@@ -89,7 +90,7 @@ namespace RichEditDocumentServerAPIExample.CodeUtils
             }
             return "";
         }
-        public static List<CodeExampleGroup> FindExamples(string examplePath, Dictionary<string, FileInfo> examplesCS, Dictionary<string, FileInfo> examplesVB)
+        public static GroupsOfRichEditExamples FindExamples(string examplePath, Dictionary<string, FileInfo> examplesCS, Dictionary<string, FileInfo> examplesVB, GroupsOfRichEditExamples richEditExamples)
         {
 
             List<CodeExampleGroup> result = new List<CodeExampleGroup>();
@@ -120,6 +121,17 @@ namespace RichEditDocumentServerAPIExample.CodeUtils
                 if (mergedExamplesCollection.Count == 0)
                     continue;
 
+                foreach (RichEditNode node in richEditExamples) {
+                    if (node.Name == mergedExamplesCollection[0].HumanReadableGroupName && node.Groups.Count == mergedExamplesCollection.Count) {
+                        int i = 0;
+                        foreach (RichEditExample example in node.Groups) {
+                            if (examplesCS.Count != 0) { example.CodeCS = mergedExamplesCollection[i].CodeCS; }
+                            if (examplesVB.Count != 0) { example.CodeVB = mergedExamplesCollection[i].CodeVB; }
+                            i++;
+                        }
+                    }
+                }
+
                 CodeExampleGroup group = new CodeExampleGroup()
                 {
                     Name = mergedExamplesCollection[0].HumanReadableGroupName,
@@ -127,7 +139,8 @@ namespace RichEditDocumentServerAPIExample.CodeUtils
                 };
                 result.Add(group);
             }
-            return result;
+            //return result;
+            return richEditExamples;
         }
 
         public static ExampleLanguage DetectExampleLanguage(string solutionFileNameWithoutExtenstion)

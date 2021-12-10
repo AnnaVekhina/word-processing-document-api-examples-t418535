@@ -5,12 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using DevExpress.XtraRichEdit.API.Native;
 using DevExpress.XtraRichEdit;
+using System.Diagnostics;
 
 namespace RichEditDocumentServerAPIExample.CodeExamples
 {
     public class CommentsActions
     {
-         void CreateComment(RichEditDocumentServer wordProcessor)
+        public static Action<RichEditDocumentServer> CreateCommentAction = CreateComment;
+        public static Action<RichEditDocumentServer> CreateNestedCommentAction = CreateNestedComment;
+        public static Action<RichEditDocumentServer> DeleteCommentAction = DeleteComment;
+        public static Action<RichEditDocumentServer> EditCommentPropertiesAction = EditCommentProperties;
+        public static Action<RichEditDocumentServer> EditCommentContentAction = EditCommentContent;
+
+        static void CreateComment(RichEditDocumentServer wordProcessor)
         {
             #region #CreateComment
             Document document = wordProcessor.Document;
@@ -21,7 +28,7 @@ namespace RichEditDocumentServerAPIExample.CodeExamples
             #endregion #CreateComment
         }
 
-         void CreateNestedComment(RichEditDocumentServer wordProcessor)
+        static void CreateNestedComment(RichEditDocumentServer wordProcessor)
         {
             #region #CreateNestedComment
             Document document = wordProcessor.Document;
@@ -38,7 +45,7 @@ namespace RichEditDocumentServerAPIExample.CodeExamples
             #endregion #CreateNestedComment
         }
 
-         void DeleteComment(RichEditDocumentServer wordProcessor)
+        static void DeleteComment(RichEditDocumentServer wordProcessor)
         {
             #region #DeleteComment
             Document document = wordProcessor.Document;
@@ -50,7 +57,7 @@ namespace RichEditDocumentServerAPIExample.CodeExamples
             #endregion #DeleteComment
         }
 
-         void EditCommentProperties(RichEditDocumentServer wordProcessor)
+        static void EditCommentProperties(RichEditDocumentServer wordProcessor)
         {
             #region #EditCommentProperties
             Document document = wordProcessor.Document;
@@ -68,7 +75,7 @@ namespace RichEditDocumentServerAPIExample.CodeExamples
             #endregion #EditCommentProperties
         }
 
-         void EditCommentContent(RichEditDocumentServer wordProcessor)
+        static void EditCommentContent(RichEditDocumentServer wordProcessor)
         {
             #region #EditCommentContent
             Document document = wordProcessor.Document;

@@ -31,7 +31,6 @@ namespace RichEditDocumentServerAPIExample.CodeUtils
             List<CodeExample> foundExamples = ParseSouceFileAndFindRegionsWithExamples(groupName, code);
             return foundExamples;
         }
-
         public List<CodeExample> ParseSouceFileAndFindRegionsWithExamples(string groupName, string sourceCode)
         {
             List<CodeExample> result = new List<CodeExample>();
@@ -53,7 +52,6 @@ namespace RichEditDocumentServerAPIExample.CodeUtils
 
                 string exampleCode = string.Join("\r\n", lines, 1, lines.Length - 2);
                 result.Add(CreateRichEditExample(groupName, regionName, exampleCode));
-
             }
             return result;
         }
@@ -103,8 +101,6 @@ namespace RichEditDocumentServerAPIExample.CodeUtils
     #region ExampleFinderVB
     public class ExampleFinderVB : ExampleFinder
     {
-        //public ExampleFinderVB() {
-        //}
         public override string RegexRegionPattern { get { return "#Region.*?#End Region"; } }
         public override string RegionStartPattern { get { return "#Region \"#"; } }
         public override string RegionHelperStartPattern { get { return "#Region \"#@"; } }

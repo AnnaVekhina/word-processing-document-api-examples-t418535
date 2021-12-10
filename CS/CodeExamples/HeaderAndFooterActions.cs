@@ -1,11 +1,14 @@
 ﻿using DevExpress.XtraRichEdit.API.Native;
 using DevExpress.XtraRichEdit;
+using System;
 
-namespace RichEditEDocumentServerExample.CodeExamples
+namespace RichEditDocumentServerAPIExample.CodeExamples
 {
     class HeadersAndFootersActions
     {
-       
+        public static Action<RichEditDocumentServer> CreateHeaderAction = CreateHeader;
+        public static Action<RichEditDocumentServer> ModifyHeaderAction = ModifyHeader;
+
         static void CreateHeader(RichEditDocumentServer wordProcessor)
         {
             #region #CreateHeader

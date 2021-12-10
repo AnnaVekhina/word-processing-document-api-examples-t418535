@@ -10,7 +10,10 @@ using DevExpress.XtraRichEdit.Import;
 namespace RichEditDocumentServerAPIExample.CodeExamples
 {
     class ImportActions
-    {        
+    {
+        public static Action<RichEditDocumentServer> ImportRtfTextAction = ImportRtfText;
+        public static Action<RichEditDocumentServer> BeforeImportAction = BeforeImport;
+
         static void ImportRtfText(RichEditDocumentServer wordProcessor)
         {
             #region #ImportRtfText
